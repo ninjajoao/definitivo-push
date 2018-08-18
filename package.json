@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ninjajoao/definitivo-push/issues"
   },
-  "homepage": "https://github.com/ninjajoao/definitivo-push#readme"
+  "homepage": "https://github.com/ninjajoao/definitivo-push#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
