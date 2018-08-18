@@ -8,6 +8,117 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=1889055714459125&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '520448788393828',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v3.1'
+            });
+            FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+            });
+            FB.AppEvents.logPageView();   
+          };
+        
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        
+        
+          function statusChangeCallback(response){
+              if (response.status === 'connected') {
+                  showBox();
+                  console.log(response);
+                  console.log('Logged in');
+                  testarApi();
+              }	
+              else {
+                  hideBox();
+                  console.log('Not logged in');
+              }
+          };
+        
+          function checkLoginState() {
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+          };
+        
+          function logout() {
+              FB.logout(function(response){
+              checkLoginState();	
+              })
+          };
+        
+          function testarApi() {
+              FB.api('me?fields=id,name,posts' , function(response) {
+                  if (response && !response.error) {
+                      console.log('Sem problemas!');
+                      console.log(response);
+                      buildprofileName(response);
+                  }
+                  else {
+                      console.log(response.error);
+                  }
+              })
+          };
+        
+          function buildprofileName(user) {
+              let profileName = `
+                  ${user.name}
+              `;
+              document.getElementById('profileName').innerHTML = profileName;
+                  let profilePosts = `
+                  ${user.posts.data.length}
+              `;
+              document.getElementById('profilePosts').innerHTML = profilePosts;
+          };
+        
+          function hideBox() {
+              document.getElementById('variableBox').style.visibility = 'hidden';
+              document.getElementById('logoutButton').style.visibility = 'hidden';
+              document.getElementById('loginButton').style.display = 'block';
+          }
+        
+          function showBox() {
+              document.getElementById('variableBox').style.visibility = 'visible';
+              document.getElementById('logoutButton').style.visibility = 'visible';
+              document.getElementById('loginButton').style.display = 'none';
+          }
+        
+          function share() {
+              FB.ui({
+                  method: 'share',
+                  href: 'https://developers.facebook.com/docs/',
+                caption: 'An example caption',
+            }, function(response){});
+          }
+        </script>
+
     <h1>Tests!</h1>
+    
+
+<div id="loginButton" class="fb-login-button" data-width="200" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,user_posts" onlogin="checkLoginState();" ></div>
+
+<div id="variableBox"><span id="profileName"></span>, voce ganharia R$:<span id="profilePosts"></span>,00 reais com o Vika!</div>
+
+<input type="button" onclick="logout()" value="Logout" id="logoutButton">
+<input type="button" onclick="share()" value="Share" id="logoutButton">
+    
 </body>
 </html>
