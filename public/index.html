@@ -10,7 +10,6 @@
     <meta property="og:title"              content="Eu ganharia " + />
     <meta property="og:description"        content="How much does culture influence creative thinking?" />
     <meta property="og:image"              content="Logo Vertical.png" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
 <div id="fb-root"></div>
@@ -23,6 +22,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <script>
+       
     window.fbAsyncInit = function() {
     FB.init({
         appId      : '520448788393828',
@@ -35,6 +35,8 @@
     });
     FB.AppEvents.logPageView();   
     };
+
+    
 
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -58,6 +60,10 @@
         }
     };
 
+    var profileName = 'Nome Teste';
+    var profilePosts = 0;
+    var nome = 'asd';
+
     function checkLoginState() {
     FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
@@ -73,7 +79,7 @@
     function testarApi() {
         FB.api('me?fields=id,name,posts' , function(response) {
             if (response && !response.error) {
-                console.log('Sem problemas!');
+                console.log('Funcao testar API!');
                 console.log(response);
                 buildprofileName(response);
             }
@@ -84,14 +90,20 @@
     };
 
     function buildprofileName(user) {
-        let profileName = `
-            ${user.name}
-        `;
-        document.getElementById('profileName').innerHTML = profileName;
-            let profilePosts, quantidadePosts = `
-            ${user.posts.data.length}
-        `;
-        document.getElementById('profilePosts').innerHTML = profilePosts;
+        let profileName = `${user.name}`;
+        let profilePosts = `${user.posts.data.length}`;
+
+        console.log(profileName);
+        console.log(profilePosts);
+
+        if (profileName && profilePosts != null) {
+            document.getElementById("getNome").innerHTML = profileName;
+            document.getElementById("getPosts").innerHTML = profilePosts;
+       }
+       else {
+           document.write("Voce não tem postagens suficientes para calcular!");
+       }
+
     };
 
     function hideBox() {
@@ -113,7 +125,6 @@
         caption: 'An example caption',
     }, function(response){});
     }
-    document.write(quantidadePosts);
 </script>
 
     <h1>Testes!</h1>
@@ -121,7 +132,8 @@
 
 <div id="loginButton" class="fb-login-button" data-width="200" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,user_posts" onlogin="checkLoginState();" ></div>
 
-<div id="variableBox"><span id="profileName"></span>, voce ganharia R$:<span id="profilePosts"></span>,00 reais com o Vika!</div>
+<div id="variableBox">
+    <script>document.write(nome)</script>, voce ganharia R$:<span id="getNome"></span>,00 reais com o Vika!</div>
 
 <input type="button" onclick="logout()" value="Logout" id="logoutButton">
 <input type="button" onclick="share()" value="Share" id="logoutButton">
