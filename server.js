@@ -2,14 +2,14 @@ var express = require('express');
 var app = express();
 const targetBaseUrl = (__dirname + 'public/resultado.handlebars');
 
-function handleRedirect (req, res) {
-	cont targetUrl = targetBaseUrl + req.originalUrl;
-	res.redirect(targetUrl);
-};
-module.exports = { 
-	redirecionar: function() {
-		app.get('*', handleRedirect);
-	}};
+// function handleRedirect (req, res) {
+// 	cont targetUrl = targetBaseUrl + req.originalUrl;
+// 	res.redirect(targetUrl);
+// };
+// module.exports = { 
+// 	redirecionar: function() {
+// 		app.get('*', handleRedirect);
+// 	}};
 
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
