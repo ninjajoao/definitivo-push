@@ -16,11 +16,11 @@ app.get('/', function(req, res) {
 });
 // Resultado
 app.get('/resultado', function(req, res) {
-	res.render('resultado', {indicadorPagina: "Resultados"}, user);
+	res.render('resultado', {indicadorPagina: "Resultados"});
 });
 app.get('/resultado/:id', function(req, res) {
     var user = req.params.id;
-	res.render('resultado', {indicadorPagina: "Resultados"});
+	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: user});
 });
 
 // 404
