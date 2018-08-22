@@ -1,10 +1,6 @@
 var express = require('express');
 var app = express();
- 
-exports.redirecionar = function() {
-	app.get('*', handleRedirect);
-};
-	
+
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
 .create({ defaultLayout:'main' });
@@ -23,7 +19,7 @@ app.get('/resultado', function(req, res) {
 	res.render('resultado', {indicadorPagina: 'Resultados'});
 });
 app.get('/resultado/:posts', function(req, res) {
-	let contagem = req.params.posts;
+	var contagem = req.params.posts;
 	res.render('resultado', {indicadorPagina: 'Resultados - pegou'}, {indicadorPostagens: contagem});
 	console.log(contagem);
 });
