@@ -20,9 +20,8 @@ app.get('/', function(req, res) {
 });
 // Resultado
 app.get('/resultado/:posts', function(req, res) {
-	var posts = req.params.posts;
-	console.log(posts);
-	res.render('resultado', {indicadorPagina: 'Resultados'});
+	var contagem = req.params.posts;
+	res.render('resultado', {indicadorPagina: 'Resultados'}, {indicadorPostagens: contagem});
 });
 // 404
 app.use(function(req, res, next){
