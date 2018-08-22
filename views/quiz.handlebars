@@ -110,10 +110,7 @@
 var nome, posts = 0;
 function gerarResultado() {
     console.log("Funcao gerar resultado. " + posts + " - " + nome);
-
-    response.writeHead(200, {
-		'Location': 'resultado.handlebars'
-	});
+    return res.redirect('/UserHomePage');
 };
 
 </script>
