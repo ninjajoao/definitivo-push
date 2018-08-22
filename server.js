@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
@@ -18,9 +20,12 @@ app.get('/', function(req, res) {
 app.get('/resultado', function(req, res) {
 	res.render('resultado', {indicadorPagina: "Resultados"});
 });
-app.get('/resultado/:id', function(req, res) {
-    var user = req.params.id;
-	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: user});
+// app.get('/resultado/:posts', function(req, res) {
+//     var postagens = req.params.posts;
+// 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
+// });
+app.post('/submit', function(req, res) {
+	res.render('resultado', {indicadorPosts: posts});
 });
 
 // 404

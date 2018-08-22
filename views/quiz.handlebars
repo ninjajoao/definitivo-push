@@ -101,7 +101,9 @@
 </script>
 
 <div id="visibleAfterLogin" style="padding:20px;background: #eee;")>
-    <input type="button" onclick="gerarResultado()" value="Gerar resultado!" style="padding:10px;font-size:20px;"><br>
+	<form action="/submit" method="POST">
+    <input type="button" value="Gerar resultado!" style="padding:10px;font-size:20px;">
+	 <input type='hidden' id= 'hiddenField' name='id' value='' /></form><br>
     <a href="" onclick="logout()" >Logout</a>
     <div id="resultBox"><div>
 </div>
@@ -109,8 +111,8 @@
 <script>
 function gerarResultado() {
     console.log("Funcao gerar res. " + posts + " - " + nome);
-    var redirect = require("./server.js");
-    redirect.redirecionar();
+    document.getElementById('hiddenField').value = posts;
+     document.getElementById("myForm").submit();
 };
 
 </script>
