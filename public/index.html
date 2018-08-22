@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acesso privado - definitivo-push</title>
+    <title>Acesso publico - sandbox-push</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url"                content="http://www.vika.com.br" />
+    <meta property="og:url"                content="https://still-gorge-36795.herokuapp.com/" />
+    <meta property="fb:app_id"             content="520448788393828" />
     <meta property="og:type"               content="website" />
-    <meta property="og:title"              content="Eu ganharia " + />
-    <meta property="og:description"        content="How much does culture influence creative thinking?" />
-    <meta property="og:image"              content="Logo Vertical.png" />
+    <script>
+    function checkVariable() {
+            console.log("Funcao write head. Posts: " + posts);
+            document.write("<meta property='og:title'              content='Eu ganharia " + posts + "' />");
+    }
+    </script>
+    <meta property="og:description"        content="Calcule quanto dinheiro você pode ganhar também!" />
+    <meta property="og:image"              content="https://still-gorge-36795.herokuapp.com/share.jpg " />
 </head>
 <body>
 <div id="fb-root"></div>
-        <script>(function(d, s, id) {
+<script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=1889055714459125&autoLogAppEvents=1';
+    js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=520448788393828&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -36,8 +43,6 @@
     FB.AppEvents.logPageView();   
     };
 
-    
-
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -46,12 +51,11 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-
     function statusChangeCallback(response){
         if (response.status === 'connected') {
-            showBox();
             console.log(response);
             console.log('Logged in');
+            showBox();
             testarApi();
         }	
         else {
@@ -59,10 +63,6 @@
             console.log('Not logged in');
         }
     };
-
-    var profileName = 'Nome Teste';
-    var profilePosts = 0;
-    var nome = 'asd';
 
     function checkLoginState() {
     FB.getLoginStatus(function(response) {
@@ -72,8 +72,10 @@
 
     function logout() {
         FB.logout(function(response){
-        checkLoginState();	
+            checkLoginState();	
+            hideBox();
         })
+        
     };
 
     function testarApi() {
@@ -90,53 +92,52 @@
     };
 
     function buildprofileName(user) {
-        let profileName = `${user.name}`;
-        let profilePosts = `${user.posts.data.length}`;
-
-        console.log(profileName);
-        console.log(profilePosts);
-
-        if (profileName && profilePosts != null) {
-            document.getElementById("getNome").innerHTML = profileName;
-            document.getElementById("getPosts").innerHTML = profilePosts;
-       }
-       else {
-           document.write("Voce não tem postagens suficientes para calcular!");
-       }
+        FB.api('me?fields=name,posts' , function(response) {
+        console.log(response);
+        nome = response["name"];
+        posts = response["posts"].data.length;
+    });
 
     };
 
     function hideBox() {
-        document.getElementById('variableBox').style.visibility = 'hidden';
-        document.getElementById('logoutButton').style.visibility = 'hidden';
-        document.getElementById('loginButton').style.display = 'block';
+        document.getElementById('visibleBeforeLogin').style.display = 'block';
+        document.getElementById('visibleAfterLogin').style.display = 'none';
     }
 
     function showBox() {
-        document.getElementById('variableBox').style.visibility = 'visible';
-        document.getElementById('logoutButton').style.visibility = 'visible';
-        document.getElementById('loginButton').style.display = 'none';
+        document.getElementById('visibleBeforeLogin').style.display = 'none';
+        document.getElementById('visibleAfterLogin').style.display = 'block';
     }
 
-    function share() {
-        FB.ui({
-            method: 'share',
-            href: 'https://developers.facebook.com/docs/',
-        caption: 'An example caption',
-    }, function(response){});
-    }
+    
 </script>
 
-    <h1>Testes!</h1>
-    
+<h2>Vika</h2>
+<i>Para acompanhar o progresso do Quiz</i><br><br>
 
-<div id="loginButton" class="fb-login-button" data-width="200" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,user_posts" onlogin="checkLoginState();" ></div>
+<div id="visibleBeforeLogin" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
 
-<div id="variableBox">
-    <script>document.write(nome)</script>, voce ganharia R$:<span id="getNome"></span>,00 reais com o Vika!</div>
+<script>
 
-<input type="button" onclick="logout()" value="Logout" id="logoutButton">
-<input type="button" onclick="share()" value="Share" id="logoutButton">
-    
+</script>
+
+<div id="visibleAfterLogin" style="padding:20px;background: #eee;")>
+    <input type="button" onclick="gerarResultado()" value="Gerar resultado!" style="padding:10px;font-size:20px;"><br>
+    <a href="" onclick="logout()" >Logout</a>
+    <div id="resultBox"><div>
+
+</div>
+
+<script>
+var nome, posts = 0;
+function gerarResultado() {
+    checkVariable();
+    console.log("Funcao gerar resultado. " + posts + " - " + nome);
+    document.write(`<head><meta property='og:title'              content='Eu ganharia " + posts + "' /></head><body><h1>` + nome + `, você ganharia R$:` + posts + ',00 com o Vika!</h1>' 
+    + ' <div class="fb-share-button" data-href="https://still-gorge-36795.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstill-gorge-36795.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div></body>');
+};
+
+</script>
 </body>
 </html>

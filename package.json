@@ -1,23 +1,22 @@
 {
-  "name": "definitivo-push",
+  "name": "sandbox-push",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ninjajoao/definitivo-push.git"
+    "url": "git+https://github.com/ninjajoao/sandbox-push.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ninjajoao/definitivo-push/issues"
+    "url": "https://github.com/ninjajoao/sandbox-push/issues"
   },
-  "homepage": "https://github.com/ninjajoao/definitivo-push#readme",
+  "homepage": "https://github.com/ninjajoao/sandbox-push#readme",
   "dependencies": {
     "express": "^4.16.3"
   }
