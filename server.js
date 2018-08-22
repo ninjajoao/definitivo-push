@@ -18,11 +18,11 @@ app.get('/', function(req, res) {
 app.get('/resultado', function(req, res) {
 	res.render('resultado', {indicadorPagina: "Resultados"});
 });
-
-app.get('/user/:id', function(req, res) {
+app.get('/resultado/:id', function(req, res) {
   var user = req.params.id;
-  res.send('user ' + user);
+	res.render('resultado', {indicadorPagina: "Resultados"}, {indicadorPostagens: user});
 });
+
 // 404
 app.use(function(req, res, next){
 	res.status(404);
