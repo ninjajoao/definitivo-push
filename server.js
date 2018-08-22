@@ -5,7 +5,7 @@ const targetBaseUrl = (__dirname + 'public/resultado.handlebars');
 function handleRedirect (req, res) {
 	cont targetUrl = targetBaseUrl + req.originalUrl;
 	res.redirect(targetUrl);
-}
+};
 module.exports = { 
 	redirecionar: function() {
 		app.get('*', handleRedirect);
