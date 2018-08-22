@@ -1,16 +1,6 @@
 var express = require('express');
 var app = express();
 
-var frases = [
-	"Você consegue!",
-	"Dê um passo para trás para dar um para frente.",
-	"Se aventure, se arrisque hoje.",
-	"Faça aquilo que você tem medo",
-	"Escreva onde você melhorou"
-];
-
-var randomFortune = frases[Math.floor(Math.random() * frases.length)];
-
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
 .create({ defaultLayout:'main' });
@@ -22,11 +12,11 @@ app.use(express.static(__dirname + '/public'));
 
 // Index
 app.get('/', function(req, res) {
-	res.render('home', { frases: randomFortune });
+	res.render('home');
 });
 // About
 	app.get('/about', function(req, res) {
-	res.render('about', { frases: randomFortune });
+	res.render('about');
 });
 // 404
 app.use(function(req, res, next){
