@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 	res.render('quiz', {indicadorPagina: 'Página inicial'});
 });
 // Resultado
-app.get('resultado', function(req, res) {
+app.get('/resultado', function(req, res) {
 	res.render('resultado', {indicadorPagina: 'Resultados'});
 });
 // 404
