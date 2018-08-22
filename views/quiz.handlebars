@@ -104,15 +104,13 @@
     <input type="button" onclick="gerarResultado()" value="Gerar resultado!" style="padding:10px;font-size:20px;"><br>
     <a href="" onclick="logout()" >Logout</a>
     <div id="resultBox"><div>
-
 </div>
 
 <script>
 var nome, posts = 0;
 function gerarResultado() {
     console.log("Funcao gerar resultado. " + posts + " - " + nome);
-    module.exports.posts = posts;
-    module.exports.nome = nome;
+
     response.writeHead(200, {
 		'Location': 'resultado.handlebars'
 	});
