@@ -22,6 +22,7 @@ app.get('/', function(req, res) {
 app.get('/resultado/:posts', function(req, res) {
 	var contagem = req.params.posts;
 	res.render('resultado', {indicadorPagina: 'Resultados'}, {indicadorPostagens: contagem});
+	console.log(contagem);
 });
 // 404
 app.use(function(req, res, next){
