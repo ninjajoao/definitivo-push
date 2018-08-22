@@ -25,7 +25,7 @@ app.get('/resultado', function(req, res) {
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
 app.post('/submit', function(req, res) {
-	res.render('resultado', {indicadorPosts: posts});
+	res.send("aeho");
 });
 
 // 404
