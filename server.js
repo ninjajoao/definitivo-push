@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 });
 // Resultado
 app.get('/resultado', function(req, res) {
-	res.render('resultado', {indicadorPagina: "Resultados"});
+	res.render('resultado', {indicadorPagina: "Resultados"}, user);
 });
 app.get('/resultado/:id', function(req, res) {
     var user = req.params.id;
