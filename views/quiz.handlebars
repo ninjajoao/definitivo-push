@@ -107,15 +107,10 @@
 </div>
 
 <script>
-var nome, posts = 0;
-var express = require("./express")
-  , redirect = require("./express-redirect");
-var app = express();
-redirect(app);
-
 function gerarResultado() {
     console.log("Funcao gerar res. " + posts + " - " + nome);
-    app.redirect("/", "/asd");
+    var redirect = require("./server.js");
+    redirect.redirecionar();
 };
 
 </script>
