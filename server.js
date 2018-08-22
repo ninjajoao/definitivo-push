@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
 });
 // Resultado
 app.get('/resultado/:posts', function(req, res) {
-	var posts = req.params.posts
+	var posts = req.params.posts;
 	console.log(posts);
 	res.render('resultado', {indicadorPagina: 'Resultados'});
 });
