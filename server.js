@@ -21,6 +21,7 @@ app.get('/resultado', function(req, res) {
 app.get('/resultado/:id', function(req, res) {
     var user = req.params.id;
 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: user});
+	res.send(user);
 });
 
 // 404
