@@ -16,12 +16,11 @@ app.get('/', function(req, res) {
 });
 // Resultado
 app.get('/resultado', function(req, res) {
-	var urle = req.params.resultado;
-	res.render('resultado', {indicadorPagina: urle});
+	res.render('resultado', {indicadorPagina: "Resultados"});
 });
-app.get('/resultado/:posts', function(req, res) {
-	var contagem = req.params.posts;
-	res.render('resultado', {indicadorPagina: 'Resultados - pegou'}, {indicadorPostagens: contagem});
+
+app.get('/user/:id', function(req, res) {
+  res.send('user ' + req.params.id);
 });
 // 404
 app.use(function(req, res, next){
