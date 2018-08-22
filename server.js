@@ -12,18 +12,22 @@ app.use(express.static(__dirname + '/public'));
 
 // Index
 app.get('/', function(req, res) {
-	res.render('quiz', {indicadorPagina: 'home'});
+	res.render('quiz', {indicadorPagina: 'Página inicial'});
+});
+// Resultado
+app.get('/', function(req, res) {
+	res.render('resultado', {indicadorPagina: 'Resultados'});
 });
 // 404
 app.use(function(req, res, next){
 	res.status(404);
-	res.render('404');
+	res.render('404', {indicadorPagina: '404'});
 });
 // 500
 app.use(function(err, req, res, next){
 	console.error(err.stack);
 	res.status(500);
-	res.render('500');
+	res.render('500', {indicadorPagina: '505'});
 });
 
 
