@@ -20,7 +20,8 @@ app.get('/resultado', function(req, res) {
 });
 
 app.get('/user/:id', function(req, res) {
-  res.send('user ' + req.params.id);
+  var user = req.params.id;
+  res.send('user ' + user);
 });
 // 404
 app.use(function(req, res, next){
