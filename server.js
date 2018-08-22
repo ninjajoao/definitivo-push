@@ -19,11 +19,14 @@ app.get('/', function(req, res) {
 	res.render('quiz', {indicadorPagina: 'Página inicial'});
 });
 // Resultado
-// app.get('/resultado/:posts', function(req, res) {
-// 	let contagem = req.params.posts;
-// 	res.render('resultado', {indicadorPagina: 'Resultados'}, {indicadorPostagens: contagem});
-// 	console.log(contagem);
-// });
+app.get('/resultado', function(req, res) {
+	res.render('resultado', {indicadorPagina: 'Resultados'});
+});
+app.get('/resultado/:posts', function(req, res) {
+	let contagem = req.params.posts;
+	res.render('resultado', {indicadorPagina: 'Resultados - pegou'}, {indicadorPostagens: contagem});
+	console.log(contagem);
+});
 // 404
 app.use(function(req, res, next){
 	res.status(404);
