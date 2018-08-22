@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
-const targetBaseUrl = (__dirname + 'public/resultado.handlebars');
+// const targetBaseUrl = (__dirname + 'public/resultado.handlebars');
 
-function handleRedirect (req, res) {
-	cont targetUrl = targetBaseUrl + req.originalUrl;
-	res.redirect(targetUrl);
-};
+// function handleRedirect (req, res) {
+// 	cont targetUrl = targetBaseUrl + req.originalUrl;
+// 	res.redirect(targetUrl);
+// };
  
 exports.redirecionar = function() {
 	app.get('*', handleRedirect);
