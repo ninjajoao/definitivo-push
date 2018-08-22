@@ -20,7 +20,7 @@ app.get('/resultado', function(req, res) {
 });
 app.get('/resultado/:id', function(req, res) {
     var user = req.params.id;
-	res.render('resultado', {indicadorPagina: "Resultados"}, user;
+	res.render('resultado', {indicadorPagina: "Resultados"});
 });
 
 // 404
