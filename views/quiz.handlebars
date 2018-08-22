@@ -94,9 +94,6 @@
     
 </script>
 
-<h2>Vika</h2>
-<i>Para acompanhar o progresso do Quiz</i><br><br>
-
 <div id="visibleBeforeLogin" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
 
 <script>
@@ -114,8 +111,8 @@
 var nome, posts = 0;
 function gerarResultado() {
     console.log("Funcao gerar resultado. " + posts + " - " + nome);
-    exports.posts = posts;
-    exports.nome = nome;
+    module.exports.posts = posts;
+    module.exports.nome = nome;
     response.writeHead(200, {
 		'Location': 'resultado.handlebars'
 	});
