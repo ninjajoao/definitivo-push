@@ -1,11 +1,5 @@
 var express = require('express');
 var app = express();
-// const targetBaseUrl = (__dirname + 'public/resultado.handlebars');
-
-// function handleRedirect (req, res) {
-// 	cont targetUrl = targetBaseUrl + req.originalUrl;
-// 	res.redirect(targetUrl);
-// };
  
 exports.redirecionar = function() {
 	app.get('*', handleRedirect);
@@ -25,7 +19,9 @@ app.get('/', function(req, res) {
 	res.render('quiz', {indicadorPagina: 'Página inicial'});
 });
 // Resultado
-app.get('/resultado', function(req, res) {
+app.get('/resultado/:posts', function(req, res) {
+	var posts = req.params.posts
+	console.log(posts);
 	res.render('resultado', {indicadorPagina: 'Resultados'});
 });
 // 404
