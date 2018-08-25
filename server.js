@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.bodyParser);
 var handlebars = require('express3-handlebars')
 	.create({ defaultLayout:'main' });
 
@@ -25,6 +25,10 @@ app.get('/resultado', function(req, res) {
 // });
 app.post('/submit', function(req, res) {
 	res.render('resultado', {indicadorPosts: posts});
+	console.log('Form (from querystring): ' + req.query.form);
+	 console.log('Nome (do formulario): ' + req.body.formNome);
+	 console.log('Posts (do formulario): ' + req.body.formPosts);
+	 res.redirect(303, '/resultado/' + req.body.formPosts);
 });
 
 // 404

@@ -102,9 +102,10 @@
 </script>
 
 <div id="visibleAfterLogin" style="padding:20px;background: #eee;")>
-	<form action="" method="POST">
-    <input type="button" value="Gerar resultado!" style="padding:10px;font-size:20px;" onclick="gerarResultado()">
-	<input type='hidden' id= 'hiddenField' name='id' value='' /></form><br>
+	<form action="/submit" method="POST">
+    <input type="submit" value="Gerar resultado!" style="padding:10px;font-size:20px;" onclick="gerarResultado()">
+    <input type='hidden' id= 'hiddenField' name='formNome' value='' /></form><br>
+	<input type='hidden' id= 'hiddenField' name='formPosts' value='' /></form><br>
     <a href="" onclick="logout()" >Logout</a>
     <div id="resultBox"><div>
 </div>
