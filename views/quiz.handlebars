@@ -104,8 +104,8 @@
 <div id="visibleAfterLogin" style="padding:20px;background: #eee;")>
 	<form action="/submit" method="POST">
     <input type="submit" value="Gerar resultado!" style="padding:10px;font-size:20px;" onclick="gerarResultado()">
-    <input type='hidden' id= 'hiddenField' name='formNome' value='' /></form><br>
-	<input type='hidden' id= 'hiddenField' name='formPosts' value='' /></form><br>
+    <input type='hidden' id= 'hiddenField1' name='formNome' value='' /></form><br>
+	<input type='hidden' id= 'hiddenField2' name='formPosts' value='' /></form><br>
     <a href="" onclick="logout()" >Logout</a>
     <div id="resultBox"><div>
 </div>
@@ -113,8 +113,8 @@
 <script>
 function gerarResultado() {
     console.log("Funcao gerar res. " + posts + " - " + nome+ " - " + fbId);
-    document.getElementById('hiddenField').value = posts;
-    document.getElementById("myForm").submit();
+    document.getElementById('hiddenField1').value = nome;
+    document.getElementById('hiddenField2').value = posts;
 };
 
 </script>
