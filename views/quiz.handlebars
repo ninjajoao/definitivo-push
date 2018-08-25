@@ -77,6 +77,7 @@
         console.log(response);
         nome = response["name"];
         posts = response["posts"].data.length;
+        fbId = response["id"];
     });
 
     };
@@ -110,7 +111,7 @@
 
 <script>
 function gerarResultado() {
-    console.log("Funcao gerar res. " + posts + " - " + nome);
+    console.log("Funcao gerar res. " + posts + " - " + nome+ " - " + fbId);
     document.getElementById('hiddenField').value = posts;
     document.getElementById("myForm").submit();
 };
