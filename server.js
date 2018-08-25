@@ -23,6 +23,8 @@ app.get('/resultado', function(req, res) {
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
 app.post('/gerar', function(req, res) {
+	 console.log('Nome (do formulario): ' + req.body.formNome);
+	 console.log('Posts (do formulario): ' + req.body.formPosts);
 	 res.redirect(303, '/resultado/');
 });
 
