@@ -5,7 +5,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
-	.create({ defaultLayout:'main',extname: '.hb' });
+	.create({ defaultLayout:'main', extname: '.hbs' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
