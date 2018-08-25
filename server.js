@@ -23,7 +23,7 @@ app.get('/resultado', function(req, res) {
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
 app.post('/submit', function(req, res) {
-	
+	req
 	 res.redirect(303, '/resultado/' + req.body.formPosts);
 });
 
