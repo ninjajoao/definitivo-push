@@ -2,10 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// set up handlebars view engine
 var handlebars = require('express3-handlebars')
-	.create({ defaultLayout:'main', extname: '.hbs' });
+	.create({ defaultLayout:'main' });
+
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
