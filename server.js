@@ -22,9 +22,7 @@ app.get('/resultado', function(req, res) {
 //     var postagens = req.params.posts;
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
-app.post('/submit', function(req, res) {
-	 console.log('Nome (do formulario): ' + req.body.formNome);
-	 console.log('Posts (do formulario): ' + req.body.formPosts);
+app.post('/gerar', function(req, res) {
 	 res.redirect(303, '/resultado/');
 });
 
