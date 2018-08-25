@@ -24,7 +24,6 @@ app.get('/resultado', function(req, res) {
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
 app.post('/submit', function(req, res) {
-	res.render('resultado', {indicadorPosts: posts});
 	console.log('Form (from querystring): ' + req.query.form);
 	 console.log('Nome (do formulario): ' + req.body.formNome);
 	 console.log('Posts (do formulario): ' + req.body.formPosts);
