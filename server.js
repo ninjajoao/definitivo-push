@@ -24,10 +24,10 @@ app.get('/resultado', function(req, res) {
 // 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
 // });
 app.post('/submit', function(req, res) {
-	console.log('Form (from querystring): ' + req.query.form);
-	 console.log('Nome (do formulario): ' + req.body.formNome);
-	 console.log('Posts (do formulario): ' + req.body.formPosts);
-	 res.redirect(303, '/resultado/' + req.body.formPosts);
+	// console.log('Form (from querystring): ' + req.query.form);
+	//  console.log('Nome (do formulario): ' + req.body.formNome);
+	//  console.log('Posts (do formulario): ' + req.body.formPosts);
+	//  res.redirect(303, '/resultado/' + req.body.formPosts);
 });
 
 // 404
