@@ -22,10 +22,14 @@ app.get('/gerar', function(req, res) {
 });
 app.post('/gerar/:fbId', urlencodedParser, function(req, res) {
 	if (req.body) {
+		var pass = 0;
+		if (pass == 0) {
+			res.redirect('/gerar/' + req.body.formId);
+			pass += 1;
+		};
 		var id = req.body.formId;
 		var name = req.body.formName;
 		var posts = req.body.formPosts;
-		res.redirect('/gerar/' + id);
 		res.render('result', {
 			resultadoNome: name,
 			resultadoPosts: posts,
