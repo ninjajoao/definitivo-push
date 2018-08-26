@@ -13,9 +13,15 @@
   js = d.createElement(s); js.id = id;
   js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=520448788393828&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+
+
+var metaPosts = {{{resultadoPosts}}};
+exports.metaPosts = metaPosts;
+;
+</script>
 
 <h1>{{resultadoNome}}, você ganharia R$:{{resultadoPosts}},00 reais</h1>
 <p>Está esperando o que? <a href="">Comece usando o Vika agora mesmo</a></p>
 
-<div class="fb-share-button" data-href="https://sleepy-garden-12882.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+<div onclick="sendMeta()" class="fb-share-button" data-href="https://sleepy-garden-12882.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
