@@ -1,31 +1,37 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
-var handlebars = require('express3-handlebars')
+var handlebars = require('express-handlebars')
 	.create({ defaultLayout:'main' });
-
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 // Index
 app.get('/', function(req, res) {
-	res.render('quiz', {indicadorPagina: 'Página inicial'});
+	res.render('index', {indicadorPagina: 'Página inicial'});
 });
-// Resultado
-app.get('/resultado', function(req, res) {
-	res.render('resultado', {indicadorPagina: "Resultados"});
+
+// Gerar
+app.get('/gerar', function(req, res) {
+	res.render('gerar', {indicadorPagina: 'Gerar'});
 });
-// app.get('/resultado/:posts', function(req, res) {
-//     var postagens = req.params.posts;
-// 	res.render('resultado', {indicadorPagina: "Resultados", indicadorPosts: postagens});
-// });
-app.post('/gerar', function(req, res) {
-	 console.log('Nome (do formulario): ' + req.body.formNome);
-	 console.log('Posts (do formulario): ' + req.body.formPosts);
-	 res.redirect(303, '/resultado/');
+app.post('/gerar', urlencodedParser, function(req, res) {
+	if (req.body) {
+		var id = req.body.formId;
+		var name = req.body.formName;
+		var posts = req.body.formPosts;
+		res.render('result', {
+			resultadoNome: name,
+			resultadoPosts: posts,
+			resultadoId: id,
+			layout: 'resultLayout' });
+		console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
+	};
 });
 
 // 404
