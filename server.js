@@ -24,9 +24,10 @@ app.post('/gerar', urlencodedParser, function(req, res) {
 	if (req.body) {
 		var pass = 0;
 		if (pass == 0) {
-			res.redirect('/gerar/' + req.body.formId);
-			console.log("Pass = " + pass);
 			pass += 1;
+			console.log("Pass = " + pass);
+			res.redirect('/gerar/' + req.body.formId);
+			return;
 		};
 		var id = req.body.formId;
 		var name = req.body.formName;
