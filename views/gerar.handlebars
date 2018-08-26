@@ -5,7 +5,11 @@
     <meta property="og:description"   content="E você quanto ganharia? Faça o teste agora mesmo" />
     <meta property="og:image"         content="http://sleepy-garden-12882.herokuapp.com/img/share.jpg" />
     <meta property="og:image:secure_url" content="https://sleepy-garden-12882.herokuapp.com/img/share.jpg" />
-    <title>Resultados</title>
+    <title>
+        {{#if resultadoPosts}}
+            Eu ganharia R$:{{{resultadoPosts}}},00!"
+        {{/if}}
+    </title>
 </head>
 <body>
 
