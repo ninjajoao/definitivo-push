@@ -11,11 +11,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
-
-var moduloMeta = require('./index.handlebars');
-var metaPosts = moduloMeta.metaPosts;
-if (metaPosts) {console.log(metaPosts)};
-
 // Index
 app.get('/', function(req, res) {
 	res.render('index', {indicadorPagina: 'Página inicial'});
