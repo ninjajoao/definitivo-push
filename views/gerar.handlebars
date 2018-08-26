@@ -76,6 +76,8 @@ function buildprofileName(user) {
         nome = response["name"];
         posts = response["posts"].data.length;
         fbId = response["id"];
+        document.getElementById('nameSpan').innerHTML = nome;
+
     });
 };
 
@@ -99,7 +101,7 @@ function generateVariables() {
     <div id="visibleBeforeLogin" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
 
 <div id="visibleAfterLogin" style="padding:20px;background:#eee">
-	<h2>Gerar quiz:</h2>
+	<h2><span id="nameSpan"></span>, gere o resultado:</h2>
     <form method="POST" action="/gerar">
         <input type="hidden" name="formId" id="hiddenId">
         <input type="hidden" name="formName" id="hiddenName">
