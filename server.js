@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 
 // Gerar
 app.get('/gerar', function(req, res) {
-	res.render('gerar', {indicadorPagina: 'Gerar resultado'});
+	res.render('gerar', {indicadorPagina: 'Gerar resultado', layout: 'resultLayout'});
 });
 app.post('/gerar', urlencodedParser, function(req, res) {
 	if (req.body) {
