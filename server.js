@@ -11,46 +11,39 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
-
 // Index
 app.get('/', function(req, res) {
 	res.render('index', {indicadorPagina: 'Página inicial'});
 });
 
-
 // Gerar
 app.get('/gerar', function(req, res) {
 	res.render('gerar', {indicadorPagina: 'Gerar resultado'});
 });
-app.post('/gerar', urlencodedParser, function(req, res) {
-	console.log("Acão post.");
-	var id = req.body.formId;
-	var name = req.body.formName;
-	var posts = req.body.formPosts;
-	res.redirect('/gerar/' + req.body.formId);
+app.post('/gerar/:fbId', urlencodedParser, function(req, res) {
+	if (req.body) {
+		var id = req.body.formId;
+		var name = req.body.formName;
+		var posts = req.body.formPosts;
+		res.render('result', {
+			resultadoNome: name,
+			resultadoPosts: posts,
+			resultadoId: id,
+			layout: 'resultLayout' });
+		console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
+	};
 });
-app.get('/gerar/:fbId', function(req, res) {
-	res.render('result', {
-		// resultadoNome: name,
-		// resultadoPosts: posts,
-		// resultadoId: id,
-		layout: 'resultLayout' });
-	console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
-});
-
 
 // 404
 app.use(function(req, res, next){
 	res.status(404);
 	res.render('404', {indicadorPagina: '404'});
 });
-
-
 // 500
 app.use(function(err, req, res, next){
 	console.error(err.stack);
 	res.status(500);
-	res.render('500', {indicadorPagina: '500'});
+	res.render('500', {indicadorPagina: '505'});
 });
 
 
