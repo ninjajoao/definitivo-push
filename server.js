@@ -36,6 +36,9 @@ app.post('/gerar', urlencodedParser, function(req, res) {
 		res.redirect('/');
 	}
 });
+app.get('/gerar/:fbId', function(req, res) {
+	res.render('gerar', {indicadorPagina: 'Gerar resultado', layout: 'resultLayout'});
+});
 
 // 404
 app.use(function(req, res, next){
