@@ -31,7 +31,10 @@ app.post('/gerar', urlencodedParser, function(req, res) {
 			resultadoId: id,
 			layout: 'resultLayout' });
 		console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
-	};
+	}
+	else {
+		res.redirect('/');
+	}
 });
 
 // 404
