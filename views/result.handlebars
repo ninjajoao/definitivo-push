@@ -1,4 +1,4 @@
-	<meta property="og:title" content="Eu ganharia R$:{{{resultadoPosts}}},00!" />
+	<meta property="og:title"         content="Eu ganharia R$:{{{resultadoPosts}}},00!" />
 	<meta property="og:url"           content="https://sleepy-garden-12882.herokuapp.com/" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:description"   content="E você quanto ganharia? Faça o teste agora mesmo" />
@@ -7,9 +7,15 @@
 </head>
 <body>
 <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=520448788393828&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<h2>Resultados:</h2>
 <h1>{{resultadoNome}}, você ganharia R$:{{resultadoPosts}},00 reais</h1>
 <p>Está esperando o que? <a href="">Comece usando o Vika agora mesmo</a></p>
 
-<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2F&layout=button&size=large&mobile_iframe=true&appId=2126102980736588&width=117&height=28" width="140" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+<div class="fb-share-button" data-href="https://sleepy-garden-12882.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
