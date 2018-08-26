@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
 app.get('/gerar', function(req, res) {
 	res.render('gerar', {indicadorPagina: 'Gerar resultado'});
 });
-app.post('/gerar/:fbId', urlencodedParser, function(req, res) {
+app.post('/gerar', urlencodedParser, function(req, res) {
 	if (req.body) {
 		var id = req.body.formId;
 		var name = req.body.formName;
