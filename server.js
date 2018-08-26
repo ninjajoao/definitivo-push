@@ -25,6 +25,7 @@ app.post('/gerar/:fbId', urlencodedParser, function(req, res) {
 		var pass = 0;
 		if (pass == 0) {
 			res.redirect('/gerar/' + req.body.formId);
+			console.log("Pass = " + pass);
 			pass += 1;
 		};
 		var id = req.body.formId;
