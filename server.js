@@ -23,18 +23,11 @@ app.get('/gerar', function(req, res) {
 	res.render('gerar', {indicadorPagina: 'Gerar resultado'});
 });
 app.post('/gerar', urlencodedParser, function(req, res) {
-	if (req.body) {
-		var pass = 0;
-		if (pass === 0) {
-			pass += 1;
-			console.log("Pass = " + pass);
-			var id = req.body.formId;
-			var name = req.body.formName;
-			var posts = req.body.formPosts;
-			res.redirect('/gerar/' + req.body.formId);
-			return;
-		};
-	};
+	console.log("Acão post.");
+	var id = req.body.formId;
+	var name = req.body.formName;
+	var posts = req.body.formPosts;
+	res.redirect('/gerar/' + req.body.formId);
 });
 app.get('/gerar/:fbId', function(req, res) {
 	res.render('result', {
@@ -57,7 +50,7 @@ app.use(function(req, res, next){
 app.use(function(err, req, res, next){
 	console.error(err.stack);
 	res.status(500);
-	res.render('500', {indicadorPagina: '505'});
+	res.render('500', {indicadorPagina: '500'});
 });
 
 
