@@ -30,7 +30,6 @@ app.post('/gerar', urlencodedParser, function(req, res) {
 			resultadoPosts: posts,
 			resultadoId: id,
 			layout: 'resultLayout' });
-		res.redirect('/gerar' + id);
 		console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
 	}
 	else {
