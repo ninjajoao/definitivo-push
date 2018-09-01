@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
 
 // Gerar
 app.get('/gerar', function(req, res) {
-	res.render('gerar', {indicadorPagina: 'Gerar resultado', layout: 'resultLayout'});
+	res.render('gerar', {indicadorPagina: 'Gerar resultado', layout: 'main'});
 });
 app.post('/gerar', urlencodedParser, function(req, res) {
 	if (req.body) {
