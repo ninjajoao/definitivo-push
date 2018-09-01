@@ -4,17 +4,14 @@
 	<meta property="og:url"           content="https://sleepy-garden-12882.herokuapp.com/gerar/{{resultadoPosts}}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:description"   content="" />
-	<meta property="og:image"         content="http://sleepy-garden-12882.herokuapp.com/img/quiz.jpg" />
-	<meta property="og:image:secure_url" content="https://sleepy-garden-12882.herokuapp.com/img/quiz.jpg" />
+	<meta property="og:image"         content="http://sleepy-garden-12882.herokuapp.com/img/quiz-big.jpg" />
+	<meta property="og:image:secure_url" content="https://sleepy-garden-12882.herokuapp.com/img/quiz-big.jpg" />
 	<title>Eu ganharia R$:{{{resultadoPosts}}},00!</title>
 </head>
 <body>
 
-<h1>{{resultadoNome}}, você ganharia R$:{{resultadoPosts}},00 reais</h1>
-<p>Está esperando o que? <a href="">Comece usando o Vika agora mesmo</a></p>
-
-<h3>/gerar/{{resultadoId}}:</h3>
-<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2Fgerar%2F{{resultadoId}}%2F&layout=button&size=large&mobile_iframe=true&appId=520448788393828&width=117&height=28" width="117" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-
-<h3>/gerar:</h3>
-<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2Fgerar&layout=button&size=large&mobile_iframe=true&appId=520448788393828&width=117&height=28" width="117" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+<div id="main-container">
+	<h1>{{resultadoNome}}, você ganharia R$:{{resultadoPosts}},00 reais</h1>
+	<p>Está esperando o que? <a href="">Comece usando o Vika agora mesmo</a></p>
+	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2Fgerar%2F{{resultadoId}}%2F&layout=button&size=large&mobile_iframe=true&appId=520448788393828&width=117&height=28" width="117" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+</div>

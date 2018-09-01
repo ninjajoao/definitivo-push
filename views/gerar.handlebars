@@ -82,13 +82,13 @@ function buildprofileName(user) {
 };
 
 function hideBox() {
-    document.getElementById('visibleBeforeLogin').style.display = 'block';
-    document.getElementById('visibleAfterLogin').style.display = 'none';
+    document.getElementByClassName('visibleBeforeLogin').style.display = 'block';
+    document.getElementByClassName('visibleAfterLogin').style.display = 'none';
 };
 
 function showBox() {
-    document.getElementById('visibleBeforeLogin').style.display = 'none';
-    document.getElementById('visibleAfterLogin').style.display = 'block';
+    document.getElementByClassName('visibleBeforeLogin').style.display = 'none';
+    document.getElementByClassName('visibleAfterLogin').style.display = 'block';
 };
 
 function generateVariables() {
@@ -97,10 +97,18 @@ function generateVariables() {
     document.getElementById('hiddenPosts').value=posts;
     console.log('generateVariables(): ' + fbId,nome,posts);
 };
-</script>
-    <div id="visibleBeforeLogin" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
 
-<div id="visibleAfterLogin" style="padding:20px;background:#eee">
+window.addEventListener("load", function() {
+    console.log("Page loaded");
+}, false); 
+
+window.attachEvent("onload", function() {
+    console.log("Page loaded");
+});
+</script>
+    <div class="fb-login-button visibleBeforeLogin" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
+
+<div id="main-container" class="visibleAfterLogin">
 	<h2><span id="nameSpan"></span>, confira o resultado:</h2>
     <form method="POST" action="/gerar">
         <input type="hidden" name="formId" id="hiddenId">
