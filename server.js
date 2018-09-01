@@ -6,7 +6,9 @@ var handlebars = require('express-handlebars')
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var id, name, posts;
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
@@ -22,22 +24,22 @@ app.get('/gerar', function(req, res) {
 });
 app.post('/gerar', urlencodedParser, function(req, res) {
 	if (req.body) {
-		var id = req.body.formId;
-		var name = req.body.formName;
-		var posts = req.body.formPosts;
-		res.render('result', {
-			resultadoNome: name,
-			resultadoPosts: posts,
-			resultadoId: id,
-			layout: 'resultLayout' });
+		id = req.body.formId;
+		name = req.body.formName;
+		posts = req.body.formPosts;
 		console.log('\x1b[32m', '\n\nNome: ' + name + ' - Posts: ' + posts + ' - Id: ' + id + "\n\n", '\x1b[0m'); 
+		res.redirect('/gerar/' + id);
 	}
 	else {
 		res.redirect('/');
 	}
 });
 app.get('/gerar/:fbId', function(req, res) {
-	res.render('gerar', {indicadorPagina: 'Gerar resultado', layout: 'resultLayout'});
+	res.render('result', {
+		resultadoNome: name,
+		resultadoPosts: posts,
+		resultadoId: id,
+		layout: 'resultLayout' });
 });
 
 // 404
