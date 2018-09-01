@@ -34,25 +34,22 @@
         if (response.status === 'connected') {
             console.log(response);
             console.log('Logged in');
-            showBox();
             testarApi();
         }	
         else {
-            hideBox();
             console.log('Not logged in');
         }
     };
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+        statusChangeCallback(response);
     });
 };
 
 function logout() {
     FB.logout(function(response){
         checkLoginState();	
-        hideBox();
     })
     
 };
@@ -81,16 +78,6 @@ function buildprofileName(user) {
     });
 };
 
-function hideBox() {
-    document.getElementsByClassName('visibleBeforeLogin').style.display = 'block';
-    document.getElementsByClassName('visibleAfterLogin').style.display = 'none';
-};
-
-function showBox() {
-    document.getElementsByClassName('visibleBeforeLogin').style.display = 'none';
-    document.getElementsByClassName('visibleAfterLogin').style.display = 'block';
-};
-
 function generateVariables() {
     document.getElementById('hiddenId').value=fbId;
     document.getElementById('hiddenName').value=nome;
@@ -98,15 +85,12 @@ function generateVariables() {
     console.log('generateVariables(): ' + fbId,nome,posts);
 };
 
-window.addEventListener("load", function() {
-    console.log("Page loaded");
-}, false); 
+function hideButton() {
+        document.getElementById('login-button').style.display = "none !important";
+};
 
-window.attachEvent("onload", function() {
-    console.log("Page loaded");
-});
 </script>
-    <div class="fb-login-button visibleBeforeLogin" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState();"></div>
+    <div id="login-button" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState(),hideButton();"></div>
 
 <div id="main-container" class="visibleAfterLogin">
 	<h2><span id="nameSpan"></span>, confira o resultado:</h2>
@@ -114,7 +98,7 @@ window.attachEvent("onload", function() {
         <input type="hidden" name="formId" id="hiddenId">
         <input type="hidden" name="formName" id="hiddenName">
         <input type="hidden" name="formPosts" id="hiddenPosts">
-        <input type="submit" value="Calcular" onclick="generateVariables()">
+        <input type="submit" value="Calcular!" onclick="generateVariables()">
     </form>
     <br>
     <div id="resultBox"><div>
