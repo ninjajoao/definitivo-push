@@ -35,11 +35,16 @@ app.post('/gerar', urlencodedParser, function(req, res) {
 	}
 });
 app.get('/gerar/:fbId', function(req, res) {
-	res.render('result', {
-		resultadoNome: name,
-		resultadoPosts: posts,
-		resultadoId: id,
-		layout: 'resultLayout' });
+	if (id && name && posts) {
+		res.render('result', {
+			resultadoNome: name,
+			resultadoPosts: posts,
+			resultadoId: id,
+			layout: 'resultLayout' });
+	}		
+	else {
+		res.redirect('/');
+	}
 });
 
 // 404
