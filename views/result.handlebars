@@ -20,7 +20,9 @@ function triggerContainer() {
 </script>
 
 <div id="main-container" style="transition:all 1s cubic-bezier(0.52, 0, 0.02, 1.5) 0s;opacity:0">
-	<h2 class="result">{{resultadoNome}}, você ganharia:</h2><h1 class="result">R$:{{resultadoPosts}},00!</h1>
-	<button class="share">Compartilhar!</button>
+	<div id="result-box">
+		<h2 class="result">{{resultadoNome}}, você ganharia:</h2><h1 class="result">R$:{{resultadoPosts}},00!</h1>
+		<input type="button" class="share" value="Compartilhar no Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://sleepy-garden-12882.herokuapp.com/gerar/{{resultadoId}}'),'facebook-share-dialog','width=626,height=436'); return false;">
+	</div>
 	<p>Está esperando o que? <a href="http://localhost:3000">Comece usando o Vika agora mesmo</a></p>
 </div>
