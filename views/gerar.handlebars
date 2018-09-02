@@ -108,7 +108,7 @@ function containerToggle(param, callback) {
         setTimeout (function() { 
             document.getElementById('loading-container').style.opacity = "0"; 
             document.getElementById('visible-after-login').style.display = "block";
-        }, callback(param));
+        }, 1500);
     }
     else {
         console.log('container toggled: false');
