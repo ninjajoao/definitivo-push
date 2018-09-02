@@ -17,7 +17,7 @@
         version    : 'v3.1'
     });
     FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+         statusChangeCallback(response);
     });
     FB.AppEvents.logPageView();   
     };
@@ -30,16 +30,19 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    function statusChangeCallback(response){
-        if (response.status === 'connected') {
-            console.log(response);
-            console.log('Logged in');
-            testarApi();
-        }	
-        else {
-            console.log('Not logged in');
-        }
-    };
+function statusChangeCallback(response){
+    if (response.status === 'connected') {
+        console.log(response);
+        console.log('Logged in');
+        testarApi();
+        document.getElementById('login-button').style.display = "none";
+        containerToggle(true);
+    }	
+    else {
+        console.log('Not logged in');
+        containerToggle(false);
+    }
+};
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
@@ -85,21 +88,50 @@ function generateVariables() {
     console.log('generateVariables(): ' + fbId,nome,posts);
 };
 
-function hideButton() {
-        document.getElementById('login-button').style.display = "none !important";
+function isLoggedIn() {
+        FB.getLoginStatus(function(response) {
+            if (response.status === "connected") {
+               console.log('Is logged in: true');
+                return true;    
+            }
+            else {
+               console.log('Is logged in: false');
+                return false;
+            }
+    });
 };
 
-</script>
-    <div id="login-button" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState(),hideButton();"></div>
+function containerToggle(param) {
+    if (param) {
+        document.getElementById('loading-container').style.display = "block";
+        setTimeout (function() { 
+            document.getElementById('loading-container').style.display = "none"; 
+            document.getElementById('visible-after-login').style.display = "block";
+        }, 3000);
+    }
+    else {
+        document.getElementById('loading-container').style.display = "none";
+        document.getElementById('visible-after-login').style.display = "none";
+    }
+}
 
-<div id="main-container" class="visibleAfterLogin">
-	<h2><span id="nameSpan"></span>, confira o resultado:</h2>
-    <form method="POST" action="/gerar">
-        <input type="hidden" name="formId" id="hiddenId">
-        <input type="hidden" name="formName" id="hiddenName">
-        <input type="hidden" name="formPosts" id="hiddenPosts">
-        <input type="submit" value="Calcular!" onclick="generateVariables()">
-    </form>
-    <br>
-    <div id="resultBox"><div>
+</script>
+
+<div id="main-container">
+    <div id="loading-container" class="sk-circle">
+        <div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div><div class="sk-circle12 sk-child"></div>
+    </div>
+
+    <div id="login-button" class="fb-login-button" data-width="400" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,user_posts" onlogin="checkLoginState()"></div>
+
+    <div id="visible-after-login">
+        <h2><span id="nameSpan"></span>, confira o resultado:</h2>
+        <form method="POST" action="/gerar">
+            <input type="hidden" name="formId" id="hiddenId">
+            <input type="hidden" name="formName" id="hiddenName">
+            <input type="hidden" name="formPosts" id="hiddenPosts">
+            <input type="submit" value="Calcular!" onclick="generateVariables()">
+        </form>
+        <br>
+    </div>
 </div>
