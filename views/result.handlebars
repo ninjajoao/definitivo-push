@@ -1,7 +1,8 @@
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
 	<meta property="fb:app_id"        content="520448788393828" />
 	<meta property="og:title"         content="Eu ganharia R$:{{{resultadoPosts}}},00! E você, quanto ganharia?" />
 	<meta name="title"                content="Eu ganharia R$:{{{resultadoPosts}}},00! " />
-	<meta property="og:url"           content="https://sleepy-garden-12882.herokuapp.com/gerar/{{resultadoPosts}}" />
+	<meta property="og:url"           content="https://sleepy-garden-12882.herokuapp.com/gerar/{{resultadoId}}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:description"   content="" />
 	<meta property="og:image"         content="http://sleepy-garden-12882.herokuapp.com/img/quiz-big.jpg" />
@@ -19,8 +20,7 @@ function triggerContainer() {
 </script>
 
 <div id="main-container" style="transition:all 1s cubic-bezier(0.52, 0, 0.02, 1.5) 0s;opacity:0">
-	<h1>{{resultadoNome}}, você ganharia R$:{{resultadoPosts}},00 reais</h1>
+	<h2 class="result">{{resultadoNome}}, você ganharia:</h2><h1 class="result">R$:{{resultadoPosts}},00!</h1>
+	<div class="fb-share-button" data-href="https://sleepy-garden-12882.herokuapp.com/gerar/{{resultadoId}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2Fgerar%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
 	<p>Está esperando o que? <a href="http://localhost:3000">Comece usando o Vika agora mesmo</a></p>
-	<div class="fb-share-button" data-href="https://sleepy-garden-12882.herokuapp.com/gerar/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsleepy-garden-12882.herokuapp.com%2Fgerar%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
-
 </div>

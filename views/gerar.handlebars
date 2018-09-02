@@ -104,11 +104,12 @@ function isLoggedIn() {
 function containerToggle(param, callback) {
     if (param) {
         console.log('container toggled: true');
-        document.getElementById('loading-container').style.display = "none"; 
+        document.getElementById('visible-after-login').style.display = "none";
+        document.getElementById('loading-container').style.display = "block"; 
         document.getElementById('loading-container').style.opacity = "1";
         setTimeout (function() { 
             document.getElementById('loading-container').style.opacity = "0"; 
-            document.getElementById('loading-container').style.display = "block"; 
+            document.getElementById('loading-container').style.display = "none"; 
             document.getElementById('visible-after-login').style.display = "block";
         }, 1500);
     }
