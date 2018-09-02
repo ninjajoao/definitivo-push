@@ -1,6 +1,6 @@
 body {margin:30px;font-family: roboto, calibri; background: #c6331f;background: url("../img/bg.jpg")}
 #header {width:100%;margin:0 0 20px;color: #eee;text-align: center; }
-#main-container {width: 764px;padding :30px;margin:0 auto;display: block; background: #fcfcfc; border-radius: 5px; text-align: center}
+#main-container {width: 764px;padding :30px;margin:0 auto;display: block; background: #fcfcfc; border-radius: 10px; text-align: center;}
 .fb-share-button span {width: 400px !important; line-height: 40px; height: 40px !important}
 input {padding: 15px; line-height: 14px; font-size: 14px; background: #e5e5e5; border: 1px solid; border-color: #eee #e7e7e7 #e0e0e0}
 input[type="submit"] {padding: 20px !important; background: #c6331f; box-shadow: 0 6px 0 #850f00; color: #fff; font-weight: 700; font-style: italic; border-radius: 6px; border: 0; display: block; margin: 0 auto; font-size: 20px; line-height: 20px; width: 400px;}
