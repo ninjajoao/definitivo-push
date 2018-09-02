@@ -115,6 +115,7 @@ function containerToggle(param, callback) {
     }
     else {
         console.log('container toggled: false');
+        document.getElementById('loading-container').style.display = "block"; 
         document.getElementById('loading-container').style.opacity = "1";
         document.getElementById('visible-after-login').style.display = "none";
     }
